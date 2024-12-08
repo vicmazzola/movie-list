@@ -16,18 +16,24 @@ async function handleFormSubmission(event) {
   const id = document.getElementById("movie-id").value;
   const name = document.getElementById("movie-name").value;
   const genre = document.getElementById("movie-genre").value;
+  const year = document.getElementById("movie-year").value;
+  const rating = document.getElementById("movie-rating").value;
 
   try {
     if (id) {
-      await api.editMovie({ id, name, genre });
+      await api.editMovie({ id, name, genre, year, rating });
     } else {
-      await api.saveMovie({ name, genre });
+      await api.saveMovie({ name, genre, year, rating });
     }
+
     ui.renderMovies();
+    ui.clearForm();
+    Swal.fire("Success", "Movie saved successfully!", "success");
   } catch {
-    alert("Error saving movie");
+    Swal.fire("Error", "Failed to save the movie. Please try again.", "error");
   }
 }
+
 
 async function filterMovies(searchTerm){
   try {
