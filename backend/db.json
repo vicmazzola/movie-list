@@ -1,0 +1,89 @@
+{
+  "movies": [
+    {
+      "id": "1001",
+      "name": "The Shining",
+      "genre": "Horror"
+    },
+    {
+      "id": "1002",
+      "name": "Forrest Gump: The Storyteller",
+      "genre": "Drama"
+    },
+    {
+      "id": "1011",
+      "name": "Ready Player One",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "1012",
+      "name": "Tron: Legacy",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "1013",
+      "name": "Wreck-It Ralph",
+      "genre": "Animation"
+    },
+    {
+      "id": "1014",
+      "name": "Scott Pilgrim vs. the World",
+      "genre": "Action/Comedy"
+    },
+    {
+      "id": "1015",
+      "name": "The Matrix",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "1016",
+      "name": "Guardians of the Galaxy",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "1017",
+      "name": "Avatar",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "1018",
+      "name": "Interstellar",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "1019",
+      "name": "Dune (2021)",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "1020",
+      "name": "Star Wars: The Empire Strikes Back",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "1021",
+      "name": "The Avengers",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "1022",
+      "name": "Black Panther",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "1023",
+      "name": "Spider-Man: Into the Spider-Verse",
+      "genre": "Animation/Science Fiction"
+    },
+    {
+      "id": "1024",
+      "name": "Free Guy",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "1025",
+      "name": "Back to the Future",
+      "genre": "Science Fiction"
+    }
+  ]
+}
