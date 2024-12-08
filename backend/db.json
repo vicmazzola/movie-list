@@ -3,87 +3,121 @@
     {
       "id": "1001",
       "name": "The Shining",
-      "genre": "Horror"
+      "genre": "Horror",
+      "year": 1980,
+      "rating": 8.4
     },
     {
       "id": "1002",
       "name": "Forrest Gump: The Storyteller",
-      "genre": "Drama"
+      "genre": "Drama",
+      "year": 1994,
+      "rating": 8.8
     },
     {
       "id": "1011",
       "name": "Ready Player One",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 2018,
+      "rating": 7.4
     },
     {
       "id": "1012",
       "name": "Tron: Legacy",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 2010,
+      "rating": 6.8
     },
     {
       "id": "1013",
       "name": "Wreck-It Ralph",
-      "genre": "Animation"
+      "genre": "Animation",
+      "year": 2012,
+      "rating": 7.7
     },
     {
       "id": "1014",
       "name": "Scott Pilgrim vs. the World",
-      "genre": "Action/Comedy"
+      "genre": "Action/Comedy",
+      "year": 2010,
+      "rating": 7.5
     },
     {
       "id": "1015",
       "name": "The Matrix",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 1999,
+      "rating": 8.7
     },
     {
       "id": "1016",
       "name": "Guardians of the Galaxy",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 2014,
+      "rating": 8.0
     },
     {
       "id": "1017",
       "name": "Avatar",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 2009,
+      "rating": 7.8
     },
     {
       "id": "1018",
       "name": "Interstellar",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 2014,
+      "rating": 8.6
     },
     {
       "id": "1019",
       "name": "Dune (2021)",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 2021,
+      "rating": 8.1
     },
     {
       "id": "1020",
       "name": "Star Wars: The Empire Strikes Back",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 1980,
+      "rating": 8.7
     },
     {
       "id": "1021",
       "name": "The Avengers",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 2012,
+      "rating": 8.0
     },
     {
       "id": "1022",
       "name": "Black Panther",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 2018,
+      "rating": 7.3
     },
     {
       "id": "1023",
       "name": "Spider-Man: Into the Spider-Verse",
-      "genre": "Animation/Science Fiction"
+      "genre": "Animation/Science Fiction",
+      "year": 2018,
+      "rating": 8.4
     },
     {
       "id": "1024",
       "name": "Free Guy",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 2021,
+      "rating": 7.1
     },
     {
       "id": "1025",
       "name": "Back to the Future",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "year": 1985,
+      "rating": 8.5
     }
   ]
 }
