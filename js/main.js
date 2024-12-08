@@ -16,8 +16,8 @@ async function handleFormSubmission(event) {
   const id = document.getElementById("movie-id").value;
   const name = document.getElementById("movie-name").value;
   const genre = document.getElementById("movie-genre").value;
-  const year = document.getElementById("movie-year").value;
-  const rating = document.getElementById("movie-rating").value;
+  const year = parseInt(document.getElementById("movie-year").value, 10);
+  const rating = parseFloat(document.getElementById("movie-rating").value);
 
   try {
     if (id) {

@@ -64,13 +64,24 @@ const ui = {
         moviesToRender = await api.fetchMovies();
       }
 
+
+      moviesToRender = moviesToRender.map(movie => ({
+        ...movie,
+        year: parseInt(movie.year, 10), // Garante que seja número
+        rating: parseFloat(movie.rating), // Garante que seja número
+      }));
+
+      console.log("Movies to render after type conversion:", moviesToRender);
       moviesToRender.forEach(ui.addMovieToList);
+
+
     } catch {
       alert("Error rendering movies");
     }
   },
 
   addMovieToList(movie) {
+    console.log("Adding movie:", movie); // Verifique os dados aqui
     const movieList = document.getElementById("movie-list");
     const li = document.createElement("li");
     li.setAttribute("data-id", movie.id);
@@ -104,8 +115,15 @@ const ui = {
     buttonEdit.textContent = "Edit";
     buttonEdit.classList.add("bg-blue-500", "text-white", "py-1", "px-3", "rounded-lg", "hover:bg-blue-600");
     buttonEdit.onclick = async () => {
-      const movieDetails = await api.fetchMovieById(movie.id);
-      ui.fillFormInModal(movieDetails);
+      try {
+        console.log("Editing movie with ID:", movie.id);
+        const movieDetails = await api.fetchMovieById(movie.id);
+        console.log("Fetched movie details:", movieDetails); // Verifica os dados retornados
+        ui.fillFormInModal(movieDetails);
+      } catch (error) {
+        console.error("Failed to fetch movie for editing:", error.message);
+        Swal.fire("Error", "Failed to fetch movie details. Please try again.", "error");
+      }
     };
 
     const buttonDelete = document.createElement("button");
