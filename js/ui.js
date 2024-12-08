@@ -1,12 +1,50 @@
 import api from "./api.js";
 
 const ui = {
+  async fillFormInModal(movie) {
+    const { value: formValues } = await Swal.fire({
+      title: `Edit Movie: ${movie.name}`,
+      html: `
+        <label for="edit-movie-name" class="block text-left">Name:</label>
+        <input id="edit-movie-name" type="text" value="${movie.name}" class="swal2-input" />
+        
+        <label for="edit-movie-genre" class="block text-left">Genre:</label>
+        <input id="edit-movie-genre" type="text" value="${movie.genre}" class="swal2-input" />
+        
+        <label for="edit-movie-year" class="block text-left">Year:</label>
+        <input id="edit-movie-year" type="number" value="${movie.year}" class="swal2-input" />
+        
+        <label for="edit-movie-rating" class="block text-left">IMDB Rating:</label>
+        <input id="edit-movie-rating" type="number" step="0.1" max="10" min="0" value="${movie.rating}" class="swal2-input" />
+      `,
+      focusConfirm: false,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      cancelButtonText: "Cancel",
+      preConfirm: () => {
+        const name = document.getElementById("edit-movie-name").value;
+        const genre = document.getElementById("edit-movie-genre").value;
+        const year = document.getElementById("edit-movie-year").value;
+        const rating = document.getElementById("edit-movie-rating").value;
 
-  async fillForm(movieId) {
-    const movie = await api.fetchMovieById(movieId);
-    document.getElementById("movie-id").value = movie.id;
-    document.getElementById("movie-name").value = movie.name;
-    document.getElementById("movie-genre").value = movie.genre;
+        if (!name || !genre || !year || !rating) {
+          Swal.showValidationMessage("All fields are required!");
+        } else {
+          return { name, genre, year, rating };
+        }
+      },
+    });
+
+    if (formValues) {
+      try {
+        // Update the movie using the API
+        await api.editMovie({ id: movie.id, ...formValues });
+        ui.renderMovies(); // Re-render the list after updating
+        Swal.fire("Success", "Movie updated successfully!", "success");
+      } catch (error) {
+        Swal.fire("Error", "Failed to update the movie. Please try again.", "error");
+      }
+    }
   },
 
   clearForm() {
@@ -61,10 +99,14 @@ const ui = {
     // Actions
     const actions = document.createElement("div");
     actions.classList.add("flex", "gap-2", "mt-4");
+
     const buttonEdit = document.createElement("button");
     buttonEdit.textContent = "Edit";
     buttonEdit.classList.add("bg-blue-500", "text-white", "py-1", "px-3", "rounded-lg", "hover:bg-blue-600");
-    buttonEdit.onclick = () => ui.fillForm(movie.id);
+    buttonEdit.onclick = async () => {
+      const movieDetails = await api.fetchMovieById(movie.id);
+      ui.fillFormInModal(movieDetails);
+    };
 
     const buttonDelete = document.createElement("button");
     buttonDelete.textContent = "Delete";
@@ -88,8 +130,7 @@ const ui = {
     li.appendChild(actions);
 
     movieList.appendChild(li);
-  }
-
+  },
 };
 
 export default ui;
