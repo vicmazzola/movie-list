@@ -111,14 +111,35 @@ const ui = {
     const buttonDelete = document.createElement("button");
     buttonDelete.textContent = "Delete";
     buttonDelete.classList.add("bg-red-500", "text-white", "py-1", "px-3", "rounded-lg", "hover:bg-red-600");
+
     buttonDelete.onclick = async () => {
       try {
-        await api.deleteMovie(movie.id);
-        ui.renderMovies();
+        // Confirmation alert before deleting
+        const result = await Swal.fire({
+          title: "Are you sure?",
+          text: "Do you want to delete this movie? This action cannot be undone.",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Yes, delete it!",
+          cancelButtonText: "Cancel",
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+        });
+
+        if (result.isConfirmed) {
+          // Delete the movie
+          await api.deleteMovie(movie.id);
+          ui.renderMovies();
+
+          // Success alert
+          Swal.fire("Deleted!", "The movie has been deleted.", "success");
+        }
       } catch (error) {
-        alert("Error deleting movie");
+        // Error alert
+        Swal.fire("Error", "Failed to delete the movie. Please try again.", "error");
       }
     };
+
 
     actions.appendChild(buttonEdit);
     actions.appendChild(buttonDelete);
